@@ -8,7 +8,7 @@ spring:
   datasource:
     # 使用druid数据源
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:13306/automatic-parakeet?useUnicode=true&characterEncoding=utf-8
+    url: jdbc:mysql://182.92.60.185:3306/automatic-parakeet-test?useUnicode=true&characterEncoding=utf-8
     username: root
     password: 123456
     filters: stat
@@ -28,7 +28,7 @@ spring:
     date-format: yyyy-MM-dd HH:mm:ss
     time-zone: GMT+8
   redis:
-    host: 127.0.0.1
+    host: 182.92.60.185
     port: 6379
     password:
     jedis:
