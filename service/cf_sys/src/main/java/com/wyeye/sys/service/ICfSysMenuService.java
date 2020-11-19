@@ -13,5 +13,5 @@ import java.util.List;
  */
 public interface ICfSysMenuService extends IService<CfSysMenu> {
 
-    CfSysMenu getMenu();
+    void updateMenu();
 }

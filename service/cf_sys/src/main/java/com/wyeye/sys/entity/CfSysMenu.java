@@ -84,5 +84,6 @@ public class CfSysMenu implements Serializable {
   private Date modifiedDate;
 
   @ApiModelProperty(value = "子节点")
+  @TableField(exist = false)
   private List<CfSysMenu> cfSysMenuList;
 }

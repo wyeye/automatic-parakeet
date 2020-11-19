@@ -25,14 +25,4 @@ public class CfSysMenuController {
 
   @Autowired private ICfSysMenuService cfSysMenuService;
 
-  @GetMapping("findAll")
-  public List getMenu() {
-    QueryWrapper<CfSysMenu> wrapper = new QueryWrapper();
-    wrapper.eq("REC_FLAG", 1).orderByAsc("PARENT_ID", "MENU_ORD");
-    List<CfSysMenu> list = cfSysMenuService.list(wrapper);
-    for (CfSysMenu cfSysMenu : list) {
-      cfSysMenu.getMenuName();
-    }
-    return list;
-  }
 }
