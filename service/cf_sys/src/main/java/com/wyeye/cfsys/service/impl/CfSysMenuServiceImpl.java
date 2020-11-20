@@ -54,7 +54,8 @@ public class CfSysMenuServiceImpl extends ServiceImpl<CfSysMenuMapper, CfSysMenu
             }
             i++;
         }
-        if (root.getCfSysMenuList() != null)
+        if (root.getCfSysMenuList() != null) {
             root.getCfSysMenuList().forEach(child -> setRoot(child, cfSysMenus));
+        }
     }
 }

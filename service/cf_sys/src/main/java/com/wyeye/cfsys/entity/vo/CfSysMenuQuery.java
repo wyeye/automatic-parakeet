@@ -1,16 +1,16 @@
-package com.wyeye.cfsys.entity;
+package com.wyeye.cfsys.entity.vo;
 
 import com.baomidou.mybatisplus.annotation.*;
-
-import java.util.Date;
-import java.io.Serializable;
-import java.util.List;
-
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import io.swagger.annotations.SwaggerDefinition;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
+
+import java.io.Serializable;
+import java.util.Date;
+import java.util.List;
 
 /**
  * 菜单表
@@ -23,12 +23,12 @@ import lombok.experimental.Accessors;
 @Accessors(chain = true)
 @TableName("CF_SYS_MENU")
 @ApiModel(value = "CfSysMenu对象", description = "菜单表")
-public class CfSysMenu implements Serializable {
+public class CfSysMenuQuery implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     @ApiModelProperty(value = "主键")
-    @TableId(value = "ID", type = IdType.ID_WORKER)
+    @TableId(value = "ID", type = IdType.ID_WORKER_STR)
     private Long id;
 
     @ApiModelProperty(value = "父菜单ID")
@@ -74,7 +74,7 @@ public class CfSysMenu implements Serializable {
     private Long createdBy;
 
     @ApiModelProperty(value = "创建时间")
-    @TableField(value = "CREATED_DATE", fill = FieldFill.INSERT)
+    @TableField("CREATED_DATE")
     private Date createdDate;
 
     @ApiModelProperty(value = "最后修改用户")
@@ -82,10 +82,6 @@ public class CfSysMenu implements Serializable {
     private Long modifiedBy;
 
     @ApiModelProperty(value = "最后修改时间")
-    @TableField(value = "MODIFIED_DATE", fill = FieldFill.INSERT_UPDATE)
+    @TableField("MODIFIED_DATE")
     private Date modifiedDate;
-
-    @ApiModelProperty(value = "子节点")
-    @TableField(exist = false)
-    private List<CfSysMenu> cfSysMenuList;
 }

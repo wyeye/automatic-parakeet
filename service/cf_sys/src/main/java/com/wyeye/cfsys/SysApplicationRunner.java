@@ -6,9 +6,14 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
-/*
+
+/**
  * 项目启动初始化
- * */
+ *
+ * @author wyeye
+ * @creed: Talk is cheap,show me the code
+ * @date 2020/11/20 3:30 下午
+ */
 @Component
 public class SysApplicationRunner implements ApplicationRunner {
     @Autowired
