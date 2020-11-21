@@ -1,5 +1,6 @@
 package com.wyeye.cfsys.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.wyeye.cfsys.entity.CfSysMenu;
@@ -8,6 +9,7 @@ import com.wyeye.cfsys.service.ICfSysMenuService;
 import com.wyeye.commonutil.R;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -18,10 +20,14 @@ import org.springframework.web.bind.annotation.*;
  */
 @RestController
 @RequestMapping("/sys/cf-sys-menu")
+@CrossOrigin
 public class CfSysMenuController {
 
     @Autowired
     private ICfSysMenuService cfSysMenuService;
+
+    @Autowired
+    private RedisTemplate<String, String> redisTemplate;
 
 
     @DeleteMapping("/delete/{id}")
@@ -58,6 +64,11 @@ public class CfSysMenuController {
     public R getMenu(@PathVariable Long id) {
         CfSysMenu cfSysMenu = cfSysMenuService.getById(id);
         return R.ok().data("menu", cfSysMenu);
+    }
+    @GetMapping("/loadMenu")
+    public R loadMenu() {
+        JSONObject jsonObject = JSONObject.parseObject(redisTemplate.opsForValue().get("cf:sys:menu"));
+        return R.ok().data("menu", jsonObject);
     }
 
     @PostMapping("/updateMenu")
