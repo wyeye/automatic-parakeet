@@ -1,0 +1,14 @@
+server:
+  port: 8088
+spring:
+  application:
+    name: service_oss
+  profiles:
+    active: dev
+aliyun:
+  oss:
+    file:
+      endpoint: oss-cn-beijing.aliyuncs.com
+      keyid: LTAI4Fney77kr8LBT7xr9dSJ
+      keysecret: Mh2309QX13dyLDcarRjY9WgRng28sa
+      bucketname: wyeye

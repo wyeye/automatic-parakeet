@@ -12,9 +12,8 @@
     <artifactId>service</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>service_edu</module>
-        <module>service_vod</module>
         <module>cf_sys</module>
+        <module>service_oss</module>
     </modules>
 
     <dependencies>
